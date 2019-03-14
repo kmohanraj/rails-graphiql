@@ -1,6 +1,6 @@
 ```
 
-  Rails GraphQL
+  Rails GraphQL Implementation
 
 ```
 
@@ -126,6 +126,44 @@ Output,
 
 ```
 
+Product id wise get data,
 
+```
 
+query Product($id: ID!){
+  getProduct(id: $id){
+    name
+    id
+    brand
+    price
+  }
+}
 
+```
+
+Query Variable,
+
+```
+
+{
+  "id": 1
+}
+
+```
+
+Output:
+
+```
+
+{
+  "data": {
+    "getProduct": {
+      "name": "Blockmore",
+      "id": "1",
+      "brand": "Laava",
+      "price": 700
+    }
+  }
+}
+
+```
