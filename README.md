@@ -5,7 +5,6 @@
 
 
 Add to your Gemfile,
-
 ```
 
 gem 'graphql', '1.8.13'
@@ -158,9 +157,9 @@ Output:
 {
   "data": {
     "getProduct": {
-      "name": "Blockmore",
+      "name": "Blockmores",
       "id": "1",
-      "brand": "Laava",
+      "brand": "Apple",
       "price": 700
     }
   }
