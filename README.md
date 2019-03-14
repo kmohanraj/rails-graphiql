@@ -1,24 +1,111 @@
-# README
+```
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+  Rails GraphQL
 
-Things you may want to cover:
+```
 
-* Ruby version
+Add to your Gemfile,
 
-* System dependencies
+```
 
-* Configuration
+gem 'graphql', '1.8.13'
 
-* Database creation
 
-* Database initialization
+```
 
-* How to run the test suite
+Then install graphql,
 
-* Services (job queues, cache servers, search engines, etc.)
+```
 
-* Deployment instructions
 
-* ...
+bundle exec rails g graphql:install
+
+```
+
+```
+
+bundle exec rails generate model Link url:string description:text
+bundle exec rails db:migrate
+
+```
+
+Change the following version to your gemfile,
+
+```
+
+gem 'graphiql-rails', '1.5.0', group: :development
+
+```
+
+
+update your gems,
+
+```
+
+bundle update
+
+```
+
+
+QUERY IMPLEMENTATION:
+
+
+Create a model and migarte, 
+
+```
+
+bundle exec rails generate model Link url:string description:text
+bundle exec rails db:migrate
+
+```
+
+
+app/graphql/types/link_type.rb
+```
+
+module Types
+  class LinkType < BaseObject
+    field :id, ID, null: false
+    field :url, String, null: false
+    field :description, String, null: false
+  end
+end
+
+```
+
+Query Resolver
+
+```
+
+module Types
+  class QueryType < BaseObject
+    
+    field :all_links, [LinkType], null: false
+
+    def all_links
+      Link.all
+    end
+  end
+end
+
+
+```
+
+Query Like, 
+
+```
+
+{
+  allLinks{
+    id
+    url
+    desc
+  }
+}
+
+```
+
+
+
+
+
