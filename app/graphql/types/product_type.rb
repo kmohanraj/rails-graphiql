@@ -1,6 +1,6 @@
 module Types
 	class ProductType < BaseObject
-		description "A Product"
+		description "A Product Types"
 		field :id, ID,        null: false
 		field :name, String,  null: false
 		field :type, String,  null: false
