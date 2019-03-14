@@ -1,8 +1,8 @@
-```
+
 
   Rails GraphQL Implementation
 
-```
+
 
 Add to your Gemfile,
 
